@@ -7,24 +7,27 @@ import About from "./Aboutus";
 import { RxCross1, RxCross2 } from "react-icons/rx";
 import ContactUs from "./ContactUs";
 import Card from "./Card";
+import LogOut from "./LogOut";
 
 function Navbar() {
   const [about, setAbout] = useState(false);
   const [contact, setContact] = useState(false);
   const [card, setCard] = useState(false);
+  const [logout, setLogout] =useState(false);
 
   // Function to close modals
   const closeModals = () => {
     setAbout(false);
     setContact(false);
     setCard(false);
+    setLogout(false);
   };
 
   return (
     <>
       <div className="flex flex-row nav-container">
         <nav  className="h-screen w-1/3 justify-start bg-slate-900">
-          <h2  className="fpnt-bold font-serif text-2xl py-10 text-white flex justify-center">
+          <h2  className="font-bold font-serif text-2xl py-10 text-white flex justify-center">
             Japrelline
           </h2>
           <ul className="text-white font-bold text-xl justify-center py-10 flex flex-col gap-5">
@@ -45,14 +48,15 @@ function Navbar() {
               <button onClick={() => setContact(true)}>Contact Us</button>
             </li>
             <li className="flex gap-7 px-[30%]">
-              <RiLoginBoxLine size={25} /> Login
+              <RiLoginBoxLine size={25} />
+              <button onClick={()=> setLogout(true)}> Login</button>
             </li>
           </ul>
         </nav>
 
-        <div className="font-extrabold text-5xl justify-center text-blue-700 bg-slate-300 w-screen h-screen transition-all duration-100" style={{ backgroundImage: 'url("https://th.bing.com/th/id/R.c9c905906ed5f6b395dec5514f75b7cb?rik=cI0aaM39DTF6dA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fHd-Laptop-wallpapers.jpg&ehk=fdAGF7dNdtQMtY9E7s8hArE8z60Wx9Vbg4oAC9aYUcs%3d&risl=&pid=ImgRaw&r=0")', backgroundSize:    'cover', backgroundPosition: 'center'}}>
-         <h1 className={`px-40 py-72 ${about || card || contact ? "invisible" : ""}`}>
-         Welcome to japrelline web page
+        <div className="font-extrabold text-3xl justify-center text-green-100 w-screen h-screen transition-all duration-100" style={{ backgroundImage: 'url("https://th.bing.com/th/id/R.c9c905906ed5f6b395dec5514f75b7cb?rik=cI0aaM39DTF6dA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fHd-Laptop-wallpapers.jpg&ehk=fdAGF7dNdtQMtY9E7s8hArE8z60Wx9Vbg4oAC9aYUcs%3d&risl=&pid=ImgRaw&r=0")', backgroundSize:    'cover', backgroundPosition: 'center'}}>
+         <h1 className={`px-40 mt-[45%] font-serif  text-center ${about || card || contact ||logout ? "invisible" : ""}`}>
+         Welcome to Japrelline's website, your portal to a realm of inspiration, innovation, and boundless creativity
         </h1>
       </div>
 
@@ -70,7 +74,7 @@ function Navbar() {
       </div>
 
       <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${contact ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={` h-[85%] w-[50%]  bg-slate-200  rounded-lg shadow-lg ml-[35%] transition-all ${contact ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-4`}>
+        <div onClick={(e) => e.stopPropagation()}  className={` h-[85%] w-[50%]  bg-slate-200  rounded-lg shadow-lg ml-[35%] transition-all duration-100 ${contact ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-4`}>
           <div className="flex flex-row justify-between items-center px-8 ">
             <span className="font-bold text-xl ">Contact with me</span>
             <RxCross2 size={20} color="gray" onClick={() => setContact(false)} />
@@ -81,14 +85,24 @@ function Navbar() {
       </div>
 
       <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${card ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
+        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all duration-100 ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
           <div className="flex flex-row justify-between items-center px-8 py-4">
             <span className="font-bold text-xl ">Welcome to japrelline market</span>
             <RxCross2 size={20} color="gray" onClick={() => setCard(false)} />
           </div>
           <div className="my-1 w-full border-b-2 border-blue-600 rounded-full"></div>
-          <div className="px-5 py-2 transition duration-500 ease-in-out">
+          <div className="px-5 py-2 transition-all  ease-in-out">
             <Card />
+          </div>
+        </div>
+      </div>
+
+      {/*  logout components */}
+
+      <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center transition-all ${logout ? "visible" : "invisible"}`}>
+        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[60%] rounded-lg shadow-lg ml-[30%] overflow-hidden transition-all duration-500 ${logout ? " translate-y-10" : " translate-x-500"} px-0 py-1 ${logout ? 'scale-100' : 'scale-0'} `} >
+          <div className=" transition duration-500 ease-in-out">
+            <LogOut />
           </div>
         </div>
       </div>
