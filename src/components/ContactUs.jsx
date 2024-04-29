@@ -12,14 +12,35 @@ const ContactUs = () => {
   const handleUserName =(e)=> setUserName(e.target.value);
   const handleUserEmail = (e) => setUserEmail(e.target.value);
   const handleUserMessage = (e) => setUserMessage(e.target.value);
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
     e.preventDefault(); 
-    
-     console.log({
+    const userData = {
       userName: userName,
       userEmail: userEmail,
       userMessage: userMessage
-    });
+    };
+    console.log(userData);
+    try{
+      const response =await fetch('http://localhost:8004/contact',{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json", 
+        },
+        body:JSON.stringify(userData),
+      });
+      if(response.ok){
+        console.log("nice to meet you ");
+        setError();
+      }
+      else{
+        console.log("enter valid username and  gmail");
+      }
+
+    }
+    catch(error){
+      console.error("eooro", error)
+    }
   };
   
   return (
@@ -117,7 +138,8 @@ const ContactUs = () => {
           </div>
           <button 
           onClick={handleSubmit}
-           className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+           className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit
+           </button>
         </div>
       </div>
   );
