@@ -8,6 +8,7 @@ import { RxCross1, RxCross2 } from "react-icons/rx";
 import ContactUs from "./ContactUs";
 import Card from "./Card";
 import LogoutForm from "./LogoutForm";
+import LogOut from "./LogOut";
 
 function Navbar() {
   
@@ -76,7 +77,7 @@ function Navbar() {
       </div>
 
       <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${contact ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={` h-[85%] w-[50%]  bg-slate-200  rounded-lg shadow-lg ml-[35%] transition-all ${contact ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-4`}>
+        <div onClick={(e) => e.stopPropagation()}  className={` h-[85%] w-[50%]  bg-slate-200  rounded-lg shadow-lg ml-[35%] transition-all duration-100 ${contact ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-4`}>
           <div className="flex flex-row justify-between items-center px-8 ">
             <span className="font-bold text-xl ">Contact with me</span>
             <RxCross2 size={20} color="gray" onClick={() => setContact(false)} />
@@ -87,13 +88,13 @@ function Navbar() {
       </div>
 
       <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${card ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
+        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all duration-100 ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
           <div className="flex flex-row justify-between items-center px-8 py-4">
             <span className="font-bold text-xl ">Welcome to japrelline market</span>
             <RxCross2 size={20} color="gray" onClick={() => setCard(false)} />
           </div>
           <div className="my-1 w-full border-b-2 border-blue-600 rounded-full"></div>
-          <div className="px-5 py-2 transition duration-500 ease-in-out">
+          <div className="px-5 py-2 transition-all  ease-in-out">
             <Card />
           </div>
         </div>
