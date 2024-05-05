@@ -34,8 +34,8 @@ const About = () => {
               <div className="shadow-2xl max-w-md z-10 mt-6 ml-4 justify-center">
                 <img
                   alt="card img"
-                  className="rounded-[1%]"
-                  src="https://scontent.fktm17-1.fna.fbcdn.net/v/t39.30808-6/378345056_327746343158571_6676538891280478066_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=6PzuMii_QAAAb4sT9Kw&_nc_ht=scontent.fktm17-1.fna&oh=00_AfB2S-BODQjXsO4rDU4ACIug2e6nEkmZ924_8rYpJcBpvQ&oe=6625DC99"
+                  className="rounded-[1%] mx-5 my-5"
+                  src="https://scontent.fktm17-1.fna.fbcdn.net/v/t39.30808-1/414095727_386575800608958_6318288145526292166_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=UxP7WAtfUY4Q7kNvgGGaWW8&_nc_ht=scontent.fktm17-1.fna&oh=00_AfBYl4ucm-gKxlgOrqR7JHi2CKG1YYFfwEuym5CgbmeCKA&oe=663A6EA8"
                 />
                 <div className="text-md overflow-hidden px-5 py-1">
                   <RiDoubleQuotesL size={20} />

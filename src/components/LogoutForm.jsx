@@ -1,28 +1,61 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
+
+
+
 import RegistrationForm from "./RegistrationForm";
 
 const LogoutForm = () => {
-    const [userName, setUserName] = useState('');
+    const [useremail, setuseremail] = useState('');
     const [password, setPassword] = useState('');
     const [registerNewMember, setRegisterNewMember] = useState(false);
 
-    const handleUserName = (e) => setUserName(e.target.value);
+    const handleuseremail = (e) => setuseremail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
 
-    const handleLogin = (e) => {
+    const handleLogin = async(e) => {
         e.preventDefault();
-        console.log({
-            userName: userName,
-            password: password
-        });
-    };
+
+        // setLoading(true);
+        const payload = {
+            useremail : useremail,
+            password: password,
+        }
+        console.log(payload);
+
+            const response = await fetch('http://localhost:8006/login',{
+                method:"POST",
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+
+                body:JSON.stringify(payload),
+            })
+            
+            await new Promise((resolve,_)=> {
+                setTimeout(()=> resolve(),400)
+            });
+
+            if( response.status !==200){
+                if(res.err_code == "USER_ALREADY_EXIST"){
+                    toast.error("user already exists");
+                }
+                setLoading(false);
+                return;
+
+            }
+
+            toast.success("Registered successfull.  You will be redurected in 3 second ..")
+            // setTimeout(() => navigate("/login"), 3000);
+        };
 
     const handleNewMember = () => setRegisterNewMember(true);
 
     const handleBackToLogin = () => setRegisterNewMember(false);
 
     return (
-        <div className="m-auto max-w-6xl px-6 max-h-2xl mt-8">
+        <div className="  m-auto max-w-6xl px-6 max-h-2xl mt-8">
             {/* Conditional rendering of either the registration form or the logout form */}
             {registerNewMember ? (
                 <>
@@ -33,9 +66,9 @@ const LogoutForm = () => {
                 <form action="post">
                     <div className="flex flex-col relative justify-center mb-10">
                         <input
-                            onChange={handleUserName}
+                            onChange={handleuseremail}
                             type="text"
-                            className="w-full h-15 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out peer"
+                            className="w-full h-15 bg-white  border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out peer rounded-lg"
                             placeholder=" "
                             required
                         />
@@ -47,7 +80,7 @@ const LogoutForm = () => {
                         <input
                             onChange={handlePassword}
                             type="text"
-                            className="w-full h-12 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out peer"
+                            className="w-full h-12 bg-white rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out peer"
                             placeholder=" "
                             required
                         />
@@ -56,7 +89,7 @@ const LogoutForm = () => {
                         </span>
                     </div>
                     <div className="mb-10">
-                        <button onClick={handleLogin} className="justify-center items-center text-white bg-indigo-500 border-0 py-3 px-10 ml-[5%] focus:outline-none hover:bg-indigo-600 rounded text-lg w-[90%]">
+                        <button onClick={handleLogin} className="justify-center items-center text-white bg-indigo-500 border-0 py-3 px-10 ml-[5%] focus:outline-none hover:bg-indigo-600 rounded-lg text-lg w-[90%]">
                             Login
                         </button>
                     </div>
