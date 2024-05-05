@@ -1,0 +1,78 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    box-shadow: 5px 5px 15px rgb(83, 80, 80);
+    padding: 20px;
+}
+.incident-info-container, .header-menu-container{
+    display: flex;
+    text-align: center;
+    gap:15px;
+   
+}
+.header-menu-container{
+    justify-content:  end;
+    flex:1;
+}
+.tu-logo{
+    width: 60px;
+    margin-top: -5px;
+
+
+}
+.identity-card-title{
+    font-size: 12px;
+    text-align: center;
+    color: blue;
+}
+.identity-card-sub-title{
+    font-size: 14px;
+    text-align: center;
+    color: blue;
+
+
+}
+.campus-name{
+    font-size: 19px;
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+.location-name{
+    font-size: 14px;
+    text-align: center;
+    color: blue;
+}
+.i-title{
+    background-color: red;
+    width:90%;
+    height: 20px;
+    padding-left: 20px;
+}
+.i-card-name{
+    font-size: 18px;
+    color: white;
+    font-style: italic;
+    margin-top: -0.1px;
+}
+.student-info-container{
+  display: flex;
+  gap:100px;
+  align-items: flex-end;
+}
+.student-details{
+    color: blue;
+}
+.student-info-title{
+    margin:10px
+
+
+}
+
+ small , .student-details{
+    font-size: 16px;
+}
+.id-card-photo{
+    width:90px;
+    margin-right: 50px;
+}
