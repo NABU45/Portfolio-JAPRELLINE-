@@ -14,18 +14,7 @@ function App() {
        contact:"9800242452",
       //  date_expired: new Date("2024-04-03")
 
-    },
-    {
-      name:"Nabin Japrel",
-      dob:"2058/03/19",
-      address:"Durgathali-5,bajhang",
-      level:"Bachelor",
-      faculty:"BSC.CSIT",
-      contact:"9800242452",
-      validdate:"Falgun 2081",
-      // date_expired: new Date("2024-04-06")
-       
-   }
+    }
   ]);
   const handelAddStudent =() =>{
     const newStudent={
