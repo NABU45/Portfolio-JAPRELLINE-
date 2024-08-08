@@ -27,7 +27,7 @@ function Navbar() {
           <h2  className="fpnt-bold font-serif text-2xl py-10 text-white flex justify-center">
             Japrelline
           </h2>
-          <ul className="text-white font-bold text-xl justify-center py-10 flex flex-col gap-5">
+          <ul className="text-white font-bold text-md justify-center py-10 flex flex-col gap-5">
             <li className="flex gap-7 px-[30%]">
               <IoHomeOutline size={25} />
               <button>Home</button>
@@ -40,7 +40,7 @@ function Navbar() {
               <IoIdCardOutline size={25} />
               <button onClick={() => setCard(true)}>Card</button>
             </li>
-            <li className="flex gap-7 px-[30%]">
+            <li className="flex gap-4 px-[30%]">
               <MdContactPhone size={25} />
               <button onClick={() => setContact(true)}>Contact Us</button>
             </li>
@@ -59,12 +59,12 @@ function Navbar() {
       </div>
 
       <div   onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${about ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={`h-[85%] w-[50%] rounded-lg shadow-lg ml-[30%] transition-all bg-slate-200 ${about ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-6`}>
+        <div onClick={(e) => e.stopPropagation()}  className={`h-[90%] w-[50%] rounded-lg shadow-lg ml-[30%] transition-all bg-slate-200 ${about ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-3`}>
           <div className="flex flex-row justify-between items-center px-8 ">
             <span className="font-bold text-xl ">Coding Genius: Programmer Developer</span>
             <button className=" duration-200"> <RxCross1 onClick={() => setAbout(false)} /></button>
           </div>
-          <div className="my-5 w-full border-b-2 border-blue-600 rounded-full"></div>
+          <div className="my-3 w-full border-b-2 border-blue-600 rounded-full"></div>
           <About />
         </div>
       </div>
@@ -81,13 +81,13 @@ function Navbar() {
       </div>
 
       <div onClick={closeModals} className={`h-screen inset-0 fixed flex justify-center items-center transition-all ${card ? "visible" : "invisible"}`}>
-        <div onClick={(e) => e.stopPropagation()}  className={`h-[84%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
-          <div className="flex flex-row justify-between items-center px-8 py-4">
+        <div onClick={(e) => e.stopPropagation()}  className={`h-[90%] w-[40%] bg-slate-200  rounded-lg shadow-lg ml-[30%] transition-all ${card ? "scale-1 translate-y-10" : "scale-900 translate-x-500"} px-0 py-1`}>
+          <div className="flex flex-row justify-between items-center px-8 py-2">
             <span className="font-bold text-xl ">Welcome to japrelline market</span>
             <RxCross2 size={20} color="gray" onClick={() => setCard(false)} />
           </div>
           <div className="my-1 w-full border-b-2 border-blue-600 rounded-full"></div>
-          <div className="px-5 py-2 transition duration-500 ease-in-out">
+          <div className="px-5 py-1 transition duration-500 ease-in-out">
             <Card />
           </div>
         </div>
